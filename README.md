@@ -26,6 +26,9 @@ Open Your Browser:
 
 Visit http://localhost:3000 to view the app.
 
+# Build 
+https://task-management-black-nu.vercel.app/
+
 # Version Used
 
 - Next.js: 14.2.15
