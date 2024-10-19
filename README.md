@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Task Management App
 
-## Getting Started
+This is a Task Management App built using **Next.js**. The app allows users to manage their tasks with features like adding, editing, deleting, completing tasks, and searching through tasks. It also uses **Server-Side Rendering (SSR)** for initial task loading and **local storage** for persisting tasks between sessions.
 
-First, run the development server:
+# Version Used
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Next.js: 14.2.15
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Technologies Used
+- Next.js
+- React (with Hooks)
+- CSS Modules
+- Local Storage API
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Features and Functions
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Add New Task**:
+   - **Function**: `addTask`
+   - Implements adding a new task with a title, description, and priority (high, medium, low).
+   
+- **Edit Task**:
+   - **Function**: `saveEdit`
+   - Implements editing of an existing task's title, description, and priority.
+   
+- **Delete Task**:
+   - **Function**: `deleteTask`
+   - Implements deleting a task from the list.
+   
+- **Mark Task as Completed**:
+   - **Function**: `toggleComplete`
+   - Implements toggling a task’s completed/pending status.
+   
+- **Search Tasks**:
+   - **Function**: `handleSearch`
+   - Implements searching through tasks by title or description.
 
-## Learn More
+- **Sort Tasks by Priority and Completion**:
+   - **Function**: Inline sorting logic in `filteredAndSortedTasks`
+   - Implements dynamic sorting of tasks by priority (high, medium, low) and placing completed tasks at the bottom.
 
-To learn more about Next.js, take a look at the following resources:
+## Server-Side Rendering (SSR) and Local Storage Management
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **SSR (Server-Side Rendering)**:
+   - The app uses **getServerSideProps** to load the initial task list from an array during the server-side rendering phase. This ensures that tasks are available on the first page load, even before JavaScript runs in the browser.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **Local Storage**:
+   - After the initial SSR data is loaded, tasks are stored and managed in **local storage** on the client side. When users add, edit, or delete tasks, these changes are saved to local storage, so the task list persists between page reloads.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+   - The app checks for tasks in local storage on every page load. If tasks exist, it loads them; otherwise, it defaults to the SSR-provided tasks.
