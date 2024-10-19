@@ -9,5 +9,3 @@ export const initialTasks = [
     { id: 2, title: 'Buy groceries', description: 'Get milk, eggs, and bread', priority: 'medium', completed: false },
     { id: 3, title: 'Go for a run', description: '30-minute jog in the park', priority: 'low', completed: false },
   ];
-  
-
